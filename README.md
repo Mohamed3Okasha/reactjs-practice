@@ -15,12 +15,17 @@ This project is a parctice of the free course on [ReactJS course on Mahratech](h
 
 - The project is set to run on PORT 3003, you can change that at the package.json file. Open [http://localhost:3003](http://localhost:3003).
 
-- The project is running on React v17.0.2 but it works fine with v18.
-
 - There was small issues due to tiny changes in the syntax than the course working version and after some search I fixed it, so put in mind to check m code if you got stuck while following the course (old) syntax.
 
 - Additionally, I  attached a db.json file that I used as a local database via a local server created by [json-server](https://github.com/typicode/json-server) that you can install as follows:
 	* In the CMD of main directory of your project, run `npm i -g json-server`
 	* In same CMD run, `json-server --watch ./DB/db.json`
 	* It will run on PORT 3000 by default [http://localhost:3000/products](http://localhost:3000/products).
+	
+
+- The project is running on React v17.0.2 but it works fine with v18 by using ReactDom.createRoot() instead of ReactDOM.render(), it will be something like the following(index.js file):
+	* `const container = 	document.querySelector('#root');
+	  const root = ReactDOM.createRoot(container);
+	  root.render( <App />);
+	  `
 
