@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import LanguageSwitcher from "./languageSwitcher";
+import { useSelector } from "react-redux";
 
-class Home extends Component {
-    state = {  } 
-    render() { 
-        return (<h1>Home...</h1>);
-    }
-}
- 
+const Home = () => {
+  return (
+    <>
+      <h1>Home...</h1>
+      <LanguageSwitcher />
+    </>
+  );
+};
+
 export default Home;
