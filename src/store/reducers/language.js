@@ -1,3 +1,5 @@
+import { SET_LANGUAGE } from "../actions/language";
+
 const INITIAL_STATE = {
   currentLang: "en",
   availableLanguages: ["en", "ar", "fr"],
@@ -5,7 +7,7 @@ const INITIAL_STATE = {
 
 export default function languageReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case "SET_LANGUAGE":
+    case SET_LANGUAGE:
       return {
         ...state,
         currentLang: action.payload,

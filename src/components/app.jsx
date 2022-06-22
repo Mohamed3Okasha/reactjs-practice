@@ -17,7 +17,10 @@ import Admin from "./admin";
 import AddProduct from "./add-product";
 import Founders from "./founders";
 import { connect } from "react-redux";
-import { changeLanguage } from "../store/actions/language";
+import { changeLanguage, SET_LANGUAGE } from "../store/actions/language";
+import { useDispatch } from "react-redux";
+import { getProductsList, GET_PRODUCTS_LIST } from "../store/actions/products";
+
 class App extends Component {
   state = {
     products: [],
@@ -25,15 +28,17 @@ class App extends Component {
 
   async componentDidMount() {
     //call backend
-    const { data } = await axios.get("http://localhost:3000/products/");
-    console.log(data);
-    //set state
-    this.setState({ products: data });
+    // const { data } = await axios.get("http://localhost:3000/products/");
     // console.log(data);
+    // //set state
+    // this.setState({ products: data });
     // const promise = fetch('https://jsonplaceholder.typicode.com/posts');
     // console.log(promise);
     // const result = promise.then(res => res.json());
     // result.then(data => console.log(data));
+    // this.props.getProductsList();
+    // console.log(this.props.products.list);
+    // this.setState({ products: this.props.products.list });
   }
 
   // async componentDidUpdate(){
@@ -159,7 +164,7 @@ class App extends Component {
         >
           <NavBar
             productCount={
-              this.state.products.filter((p) => p.isSelected === true).length
+              this.state.products?.filter((p) => p.isSelected === true).length
             }
           />
           <main className="container">
@@ -177,7 +182,7 @@ class App extends Component {
                 path="/admin"
                 element={
                   <Admin
-                    products={this.state.products}
+                    // products={this.state.products}
                     onDelete={this.handlePermanentDelete}
                     onAdd={this.handleAddProduct}
                   />
@@ -233,6 +238,17 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     lang: state.lang.currentLang,
+    products: state.products.list,
+    // getProductsList:
   };
 };
-export default connect(mapStateToProps, { changeLanguage })(App);
+
+// const mapDispatchToProps = () => {
+//   return {
+//     changeLanguage: changeLanguage,
+//     getProductsList: getProductsList,
+//   };
+// };
+export default connect(mapStateToProps, { changeLanguage, getProductsList })(
+  App
+);
