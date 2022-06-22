@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LanguageSwitcher from "./languageSwitcher";
+import LanguageSwitcher from "../components/languageSwitcher";
 import { useSelector } from "react-redux";
 
 const Home = () => {

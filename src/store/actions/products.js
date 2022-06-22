@@ -1,10 +1,11 @@
 import axios from "axios";
+import axionInstance from "../../network/axiosInstance";
 
 export const GET_PRODUCTS_LIST = "GET_PRODUCTS_LIST";
 
 export const getProductsList = () => (dispatch) => {
-  return axios
-    .get("http://localhost:3000/products/")
+  return axionInstance
+    .get("/products")
     .then((res) => {
       console.log("Entered getProductsList Dispatch");
       dispatch({
@@ -12,5 +13,5 @@ export const getProductsList = () => (dispatch) => {
         payload: res.data,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("error: ", err));
 };

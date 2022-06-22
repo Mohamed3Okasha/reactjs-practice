@@ -2,24 +2,24 @@ import React, { Component } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
 
-import NavBar from "./navbar";
-import About from "./about";
-import ShoppingCart from "./shoppingcart";
-import Contact from "./contact";
-import Home from "./home";
-import ProductDetails from "./productDetails";
-import NotFound from "./notFound";
-import Team from "./team";
-import Company from "./company";
-import Menu from "./menu";
-import Login from "./login";
-import Admin from "./admin";
-import AddProduct from "./add-product";
-import Founders from "./founders";
+import NavBar from "./components/navbar";
+import About from "./pages/about";
+import ShoppingCart from "./pages/shoppingcart";
+import Contact from "./pages/contact";
+import Home from "./pages/home";
+import ProductDetails from "./components/productDetails";
+import NotFound from "./pages/notFound";
+import Team from "./components/team";
+import Company from "./components/company";
+import Menu from "./pages/menu";
+import Login from "./pages/login";
+import Admin from "./pages/admin";
+import AddProduct from "./pages/add-product";
+import Founders from "./components/founders";
 import { connect } from "react-redux";
-import { changeLanguage, SET_LANGUAGE } from "../store/actions/language";
+import { changeLanguage, SET_LANGUAGE } from "./store/actions/language";
 import { useDispatch } from "react-redux";
-import { getProductsList, GET_PRODUCTS_LIST } from "../store/actions/products";
+import { getProductsList, GET_PRODUCTS_LIST } from "./store/actions/products";
 
 class App extends Component {
   state = {
